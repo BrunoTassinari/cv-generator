@@ -1,0 +1,37 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  docxtemplater:
+    specifier: ^3.46.2
+    version: 3.46.2
+  pizzip:
+    specifier: ^3.1.6
+    version: 3.1.6
+
+packages:
+
+  /@xmldom/xmldom@0.8.10:
+    resolution: {integrity: sha512-2WALfTl4xo2SkGCYRt6rDTFfk9R1czmBvUQy12gK2KuRKIpWEhcbbzy8EZXtz/jkRqHX8bFEc6FC1HjX4TUWYw==}
+    engines: {node: '>=10.0.0'}
+    dev: false
+
+  /docxtemplater@3.46.2:
+    resolution: {integrity: sha512-IG5o+675VzQDW6/saYmBP1aaJHJ78r846fVhTUOVjrcaqrj/mHIR7a43YSkDd5bxa+M76i0SdAIKfBnXC6bbTQ==}
+    engines: {node: '>=0.10'}
+    dependencies:
+      '@xmldom/xmldom': 0.8.10
+    dev: false
+
+  /pako@2.1.0:
+    resolution: {integrity: sha512-w+eufiZ1WuJYgPXbV/PO3NCMEc3xqylkKHzp8bxp1uW4qaSNQUkwmLLEc3kKsfz8lpV1F8Ht3U1Cm+9Srog2ug==}
+    dev: false
+
+  /pizzip@3.1.6:
+    resolution: {integrity: sha512-FCG2lSMVlrt2jB1iokujjXexanfszV/Y04t4mu1icdSEC/vb/2qDISr2kgENzdkThd1jkRNjvipWitU4gpbM/g==}
+    dependencies:
+      pako: 2.1.0
+    dev: false
