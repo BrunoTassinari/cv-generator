@@ -9,7 +9,7 @@ const rl = readline.createInterface({ input, output });
 
 const main = async () => {
   const inPath = path.resolve(`${__dirname}/files/in`, "input.docx");
-  const outPath = path.resolve(`${__dirname}/files/out`, "output.docx");
+  const outPath = path.resolve(`${__dirname}/files/out`, `output${new Date().getTime()}.docx`);
 
   const content = fs.readFileSync(
       path.resolve(inPath),
@@ -22,14 +22,16 @@ const main = async () => {
       linebreaks: true,
   });
 
-  const newObjective = await askQuestion('Objetivo? ');
-  const newSkills = formatSkills(await askQuestion('Habilidades? '));
+  const newObjective = await askQuestion('Objetivo: ');
+  const newSkills = formatSkills(await askQuestion('Habilidades: '));
 
   await replaceText(doc, newObjective, newSkills);
   const buf = writeOutput(doc, outPath);
-  
+
   fs.writeFileSync(outPath, buf);
   console.log('Arquivo gerado com sucesso!');
+
+  rl.close();
 }
 
 const askQuestion = async (question) => {
@@ -61,7 +63,7 @@ const writeOutput = (doc, outPath) => {
 }
 
 const formatSkills = (skills) => {
-  return skills.split(',').map(skill => {
+  return skills.split(', ').map(skill => {
     return {
       name: skill
     }
